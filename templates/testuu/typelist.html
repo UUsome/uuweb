@@ -1,0 +1,23 @@
+{% extends 'testuu/master.html' %}
+
+{% block main %}
+    <table class="table table-striped table-hover table-bordered">
+
+            <tr>
+                <th>ID</th>
+                <th>层级</th>
+                <th>父级ID</th>
+                <th>名称</th>
+            </tr>
+            {% for  i  in  allType %}
+            <tr>
+                     <td>{{ i.id }} </td>
+                    <td>{{ i.level }} </td>
+                     <td>{{ i.p_type_id }} </td>
+                     <td>{{ i.name }} </td>
+            </tr>
+          {% endfor %}
+
+    </table>
+{% endblock %}
+

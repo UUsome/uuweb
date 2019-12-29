@@ -1,0 +1,113 @@
+:root {
+  --blue: #007bff;
+  --indigo: #6610f2;
+  --purple: #6f42c1;
+  --pink: #e83e8c;
+  --red: #dc3545;
+  --orange: #fd7e14;
+  --yellow: #ffc107;
+  --green: #28a745;
+  --teal: #20c997;
+  --cyan: #17a2b8;
+  --white: #fff;
+  --gray: #6c757d;
+  --gray-dark: #343a40;
+  --primary: #007bff;
+  --secondary: #6c757d;
+  --success: #28a745;
+  --info: #17a2b8;
+  --warning: #ffc107;
+  --danger: #dc3545;
+  --light: #f8f9fa;
+  --dark: #343a40;
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    background-color: darkgray;
+}
+
+.header {
+    width: 100%;
+    height: 10%;
+    background-color: #00FFFF;
+}
+
+.content {
+    width: 100%;
+    height: 80%;
+    background-color: aliceblue;
+    overflow: hidden;
+}
+
+.left {
+    width: 20%;
+    height: 100%;
+    background-color: #0000FF;
+    float: left;
+}
+
+.middle {
+    width: 60%;
+    height: 100%;
+    background-color: #8A2BE2;
+    float: left;
+}
+
+.right {
+    width: 20%;
+    height: 100%;
+    background-color: #8b8805;
+    float: left;
+}
+
+.bottom {
+    width: 100%;
+    height: 10%;
+    background-color: #7FFF00;
+}
+
+#tb{
+    /*合并表格中的边框*/
+    border-collapse: collapse;
+
+    /*设置整个表格的宽度*/
+    width: 500px;
+}
+
+td, th{
+    border: 1px solid bisque;
+    padding: 5px;
+}
+
+th{
+    text-align: right;
+    background-color: #8917ff;
+    color:white;
+}
+
+/*#tb tr.alt td{*/
+.alt td{
+    color: black;
+    background-color: aquamarine;
+}
+

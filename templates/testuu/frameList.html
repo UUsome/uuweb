@@ -1,0 +1,25 @@
+{% extends 'testuu/master.html' %}
+
+{% block main %}
+<table  class="table table-striped table-hover table-bordered">
+    <br>
+        <tr>
+            <th>类型</th>
+            <th>名称</th>
+            <th>操作</th>
+        </tr>
+        {% for  i  in  allFrame %}
+        <tr>
+
+             <td> {% for  t  in  allType %} {% if i.type_id == t.id %} {{ t.name }} {% endif %}{% endfor %}</td>
+             <td>{{ i.name }} </td>
+             <td class="text-center">
+                <a href="{% url 'SolutionAdd' type_id=i.type_id frame_union=i.frame_union %}" role="button"> <span class="badge badge-pill">使用 </span></a> &nbsp;
+                <a href="{% url 'framedetail' type_id=i.type_id frame_union=i.frame_union %}" role="button"> <span class="badge badge-pill">查看 </span></a>
+             </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
+

@@ -1,0 +1,24 @@
+{% extends 'testuu/master.html' %}
+
+{% block main %}
+    <form role="form"  method="post"  action="">
+    {% csrf_token %}
+    <input  type="hidden"  name="solution_union"  value="{{ solution_union|length }}">
+    <input  type="hidden"  name="numb"  value="{{ frame|length }}">
+    {% for f in frame %}
+            <tr>
+                <th>{{ f.name }}</th>
+                <td>
+                    {% if f.title_content == 0 %} <!-- 标题 -->
+                        <input type="hidden"  name="frame{{ forloop.counter }}"  value="{{ f.id }}"><br>
+                        <textarea name="solution{{ forloop.counter }}" ></textarea> <br><br><br><br>
+                    {% else %}  <!-- 内容 -->
+                        <input type="hidden"  name="frame{{ forloop.counter }}"  value="{{ f.id }}"> <br>
+                        <textarea name="solution{{ forloop.counter }}" ></textarea><br><br>
+                    {% endif %}
+                </td>
+            </tr>
+    {% endfor %}
+      <input type="submit" value="提 交">
+    </form>
+{% endblock %}

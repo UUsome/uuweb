@@ -1,0 +1,16 @@
+{% extends 'testuu/master.html' %}
+{% block main %}
+{% for f in frame %}
+    {{ f.name }} &nbsp;&nbsp;&nbsp;&nbsp;
+        {% for s in solution %}
+            {% if s.frame_id == f.id %}
+                {% if f.title_content == 0 %}
+                     {{ s.name }} <br><br><br><br>
+                {% else %}
+                      {{ s.name }}<br><br>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+ {% endfor %}
+
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+{% block leftbar %}
+
+{% endblock %}
+
+{% block main %}
+
+{% endblock %}
+
+{% block rightbar %}
+    <div >
+    <br><br>
+
+        类型操作：<br>
+        <a href="{% url 'TypeAdd' %}" class="btn btn-secondary" role="button" aria-pressed="true">添加类型</a>
+        <a href="{% url 'typeList' %}" class="btn btn-info" role="button" aria-pressed="true">类型列表</a>  <br><br>
+        框架操作：<br>
+        <a href="{% url 'FrameAdd' %}" class="btn btn-secondary" role="button" aria-pressed="true">添加框架</a>
+        <a href="{% url 'frameList' %}" class="btn btn-info" role="button" aria-pressed="true">框架列表</a> <br>
+    </div>
+{% endblock %}

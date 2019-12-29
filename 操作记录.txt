@@ -1,0 +1,47 @@
+django 项目创建
+创建 应用app 
+
+# 第一部分：搭建及配置项目与应用
+# 1.1，项目及应用创建：
+django-admin startproject uuweb  ==  File - New Project 
+python manage.py startapp testuu == Tool - Run manage.py Task 进入命令行 > startapp testuu 
+python manage.py runserver 0.0.0.0:8000  == Run 
+
+# 1.2, 新增APP
+python manage.py startapp testuu
+uuweb-uuweb-settings.py -- INSTALLED_APPS {add 'testuu'}
+uuweb-testuu {new file urls.py}
+
+
+# 1.3，数据库配置
+uuweb-uuweb-settings.py
+python manage.py makemigrations 
+python manage.py migrate 
+
+# 1.4,建管理员账号
+python manage.py createsuperuser
+python manage.py changepassword username
+
+
+# 第二部分：设计、规划功能
+
+# 2.1 规划：
+	1，实现动态添加
+		1，类型表设计 TypeDetail (id,P_type,name,add_time,is_show,remark)
+		2，框架表设计 frame (id,type_id,order_flage,name,creater,add_time,is_show,remark)
+		3，方案表设计 solution (s_order[第几个方案],frame_id,name,creater,add_time,is_show,remark)
+
+
+# 第三部分 实现功能
+进入app目录：
+models.py  -- 实现规划的表结构
+views.py   --  定义前端，与url和template
+new file forms.py  -- 实现输入表单
+
+
+
+
+
+
+
+
