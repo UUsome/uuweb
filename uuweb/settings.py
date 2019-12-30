@@ -25,7 +25,7 @@ SECRET_KEY = '-=fg8r)54zsf*2(pm&te0r-8e$zmb@%%^v6%4f7r6d*g1*hf3n'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -117,9 +117,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'zh-hans'  #'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Shanghai'  #'UTC'
 
 USE_I18N = True
 
@@ -136,3 +136,4 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (  #使static目录生效
     os.path.join(BASE_DIR, 'static'),
 )
+
