@@ -1,0 +1,12 @@
+<!--友情链接-->
+<div class="side-link animation-div">
+    <h4 class="index-title"><i class="el-paper-clip"></i>友情链接
+        <small>Links</small>
+       
+    </h4>
+    <ul>
+        {% for blog in blogroll %}
+            <li><a href="{{ blog.url }}" target="_blank" title="{{ blog.desc }}">{{ blog.name }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
