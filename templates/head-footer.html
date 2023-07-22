@@ -1,0 +1,28 @@
+{% extends "base-static.html" %}
+{% load static %}
+
+{% block main %}
+<div id="header">
+<h1>古 风</h1>
+</div>
+
+<div id="nav">
+<a href="{% url 'caselist' %}" role="button"> <span >casepoint </span></a><br>
+<a href="" role="button"> <span >blog </span></a><br>
+<a href="" role="button"> <span >dailyreport </span></a><br>
+</div>
+
+
+    <!-- Left side column. contains the logo and sidebar -->
+    {% block middle %}
+
+    {% endblock %}
+
+    <!-- Main Footer -->
+<footer >
+	<div id="footer">
+	Copyright UUsome
+	</div>
+</footer>
+
+{% endblock %}

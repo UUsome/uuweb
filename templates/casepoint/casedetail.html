@@ -1,0 +1,53 @@
+{% extends "base-left.html" %}
+{% load static %}
+
+{% block content %}
+
+
+<form role="form"  method="post"  action="">
+	<div>
+		{% csrf_token %}
+		<input  type="hidden"  name="case_contents_count"  value="{{ case_contents_count }}"><br>
+		
+		<h3>{{ case_title.casetitle }}</h3>
+
+
+		<input name="solution0" type="text"  placeholder="主题：">
+		<input type="hidden"  name="caseid0"  value="{{ case_title.id }}"> <br>
+		<ol>
+			{% for c in case_contents %}
+					<li>
+						{% if c.sub_title == 1 %}   
+								<label for="FormControlTextarea1">{{ c.casecontent }}</label>
+								<input type="hidden"  name="caseid{{ forloop.counter }}"  value="{{ c.id }}"> <br>
+								<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="solution{{ forloop.counter }}"></textarea>
+						{% else %}
+						<label for="FormControlTextarea1"><strong>{{ c.casecontent }}</strong></label>
+							<input type="hidden"  name="caseid{{ forloop.counter }}"  value="{{ c.id }}"> <br>
+							<input type="hidden"  name="solution{{ forloop.counter }}"  value=""> <br>
+						{% endif %}
+					</li>
+			{% endfor %}
+		</ol>
+		<button type="submit" >提交</button>
+	</div>
+</form>
+
+<hr class="simple" color="#6f5499" /> <!-- 分割线 -->
+
+<div>
+案例列表：
+	<ul>
+	{% for s in Solutions %}
+		<li>
+			<a href="{% url 'solutiondetail' Case_title_id=case_title.id uniqueid=s.uniqueid %}" role="button">{{ s.id }}  {{ s.solution }} </a>
+		</li>
+	{% endfor %}
+	</ul>	
+</div>
+
+
+{% endblock %}
+
+ 
+

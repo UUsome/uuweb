@@ -1,0 +1,45 @@
+{% extends "base-left.html" %}
+{% load static %}
+
+{% block content %}
+
+<div>
+ 案例info
+{% for s in Solutions %}
+	{% if s.is_title == 1 %}   
+		{{ case_title.casetitle }}  {{ s.solution }}  666
+	{% else %}
+	<ul>
+		{% for c in case_contents %}
+			
+				{% if c.sub_title == 1 %}
+					{% if s.case_id == c.id %}
+						<li>{{ c.casecontent }} <small><i>{{ s.solution }} </i></small> </li>
+					{% endif %}	
+				{% else %}
+					{% if s.case_id == c.id %}
+						<li>{{ c.casecontent }}  </li>
+					{% endif %}						
+				{% endif %}
+			
+		{% endfor %}
+	</ul>
+	{% endif %}
+{% endfor %}
+<div>
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
+
+ 
+

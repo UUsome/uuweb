@@ -1,0 +1,35 @@
+{% extends "base-left.html" %}
+{% load static %}
+
+{% block content %}
+<table border="2" >
+	<tr>
+		<th width="20%">类别</th>
+		<th>框架</th>
+		<th width="20%">  操作</th>
+	</tr>
+		{% for  t  in  case_title %}
+		<tr>
+			<td >
+				{% if t.category == '0' %}
+					学习工具
+				{% elif t.category == '1' %}
+					思考工具
+				{% elif t.category == '2' %}
+					分类工具
+				{% elif t.category == '3' %}
+					分步工具
+				{% else %}
+					忘记了 {{t.category}}
+				{% endif %}
+			</td>
+			<td > {{ t.casetitle }} </td>
+			<td style="text-align:center;">
+				<a href="{% url 'casedetail' Case_title_id=t.id %}" role="button"> <span >查看 </span></a>
+			</td>
+		</tr>
+			{% endfor %}
+		
+</table>
+{% endblock %}
+

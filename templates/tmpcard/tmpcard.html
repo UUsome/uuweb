@@ -1,0 +1,31 @@
+{% extends "base-left.html" %}
+{% load static %}
+
+{% block content %}
+
+
+<form role="form"  method="post"  action="">
+	{% csrf_token %}
+	<input name="mytitle" type="text"  placeholder="标题：">
+	<textarea class="form-control" id="exampleFormControlTextarea1" rows="20" name="mybody"></textarea>
+	<button type="submit" >提交</button>
+</form>
+
+<hr class="simple" color="#6f5499" /> <!-- 分割线 -->
+
+<div>
+列表：
+	<ul>
+	{% for t in tmpcard %}
+		<li>
+			 {{ t.title }}  {{ t.body }} 
+		</li>
+	{% endfor %}
+	</ul>	
+</div>
+
+
+{% endblock %}
+
+ 
+

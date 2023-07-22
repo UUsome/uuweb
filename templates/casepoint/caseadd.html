@@ -1,0 +1,42 @@
+{% extends "base-left.html" %}
+{% load static %}
+
+
+
+{% block content %}
+
+<form role="form"  method="post"  action="caseadd">
+{% csrf_token %}
+	<label  > 类 型 </label>
+	<select style="width:10%;" name="category">
+		{% for category in categorys %}
+		<option value="{{ category.key }}">{{ category.value }}</option>
+		{% endfor %}
+	</select>
+	<span class="input-group-text" id="inputGroup-sizing-default"> 标 题 </span>
+	<input type="text" style="width:20%;" aria-label=" input" name="casetitle">
+	<input class="form-control" id="Num" type="hidden"  name="Num"  value="0">
+	<p id="casetitle_id"> </p>
+	<p>添加步骤：<span> <a id="Case_content_add" href="javascript:void(0);">添加</a></span> </p>
+	<button  type="submit">提 交</button>
+</form>
+
+{% endblock %}
+
+
+{% block javascripts %}
+   <!-- 两个script脚本用处,动态添加输入框    -->
+<script src="{% static  'js/jquery-3.3.1.js' %}"></script>
+<script>
+$(function () {
+    var num = 1;
+    $("#Case_content_add").click(function () {
+        $("#casetitle_id").append("<span>第"+num+"步： <input  type=\"radio\" name=\"sub_title"+num+"\" value=\"1\" checked=\"checked\">内容 <input type=\"radio\" value=\"0\" name=\"sub_title"+num+"\" > 子标题 </span> </span><span><input class=\"form-control\" name=\"Cname"+num+"\"> <br>");
+        $("#Num").val(num);
+        num += 1;
+    });
+});
+</script>
+
+
+{% endblock %}

@@ -20,13 +20,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include # add include
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('media/<path>', serve, {"document_root": MEDIA_ROOT}),
-    path('', include('system.urls')), # add
-    path('', include('dailyreport.urls')), # add
-    path('', include('blog.urls')),
-    path('', include('testuu.urls')), # add
+    path('', include('casepoint.urls')), # add
+    path('', include('tmpcard.urls')), # add
+    
 ]
 
-# path('blog/', include(('blog.urls', 'blog'), namespace='blog')),
