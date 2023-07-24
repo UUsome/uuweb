@@ -41,15 +41,16 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'casepoint',
     'tmpcard',
-
+    'blog',
+    'plan',
 ]
 
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
+    # 'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    # 'django.middleware.csrf.CsrfViewMiddleware', # 这个为啥注释？
+    'django.middleware.csrf.CsrfViewMiddleware', # 这个为啥注释？
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',  # 用来解决 Refused to display 'http://127.0.0.1:8000/' in a frame because it set 'X-Frame-Options' to 'deny'.

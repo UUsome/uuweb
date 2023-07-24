@@ -1,0 +1,16 @@
+{% extends "base-left.html" %}
+{% load static %}
+
+
+{% block content %}
+    <section class="mysection">
+        <h4 class="index-title">
+           <b class="lable">  标签：</b><a href="{% url "blogtag" name=tag %}">{{ tag }}</a>
+        </h4>
+        {% if blog_list %}
+            {% include "blog/_blog_list.html" with blogs=blog_list %}
+        {% else %}
+            <p>暂时没有文章..</p>
+        {% endif %}
+    </section>
+{% endblock %}

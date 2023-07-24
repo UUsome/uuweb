@@ -3,12 +3,32 @@
 
 
 {% block middle %}
+<!-- 左 -->
+<div id="menu" style="background-color:#eedeb0;width:100px;">    
+	<a href="{% url 'caselist' %}" role="button"> <span >casepoint </span></a><br>
+	<a href="{% url 'blogs' %}" role="button"> <span >blog </span></a><br>
+	<a href="{% url 'blogs' %}" role="button"> <span >plan </span></a><br>
+	
+	{% block leftdown %} {% endblock %}
+
+</div>
 
 
-
-<div id="section">
+<!-- 中间 -->
+<div id="content" style="background-color:#c0ebd7;flex:1;">
 {% block content %}
 {% endblock %}
 </div>
+
+
+
+<!-- 右 -->
+<div id="right" style="background-color:#e3f9fd;color:#bbcdc5;width:100px;">
+{% block myright %}
+
+
+{% endblock %}
+</div>
+
 
 {% endblock %}

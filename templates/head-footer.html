@@ -2,27 +2,23 @@
 {% load static %}
 
 {% block main %}
-<div id="header">
-<h1>古 风</h1>
+<!-- header -->
+ <div id="header" style="background-color:#3eede7;width:100%;">
+        <h1 style="margin-bottom:0;text-align:center;">古 风</h1>
 </div>
 
-<div id="nav">
-<a href="{% url 'caselist' %}" role="button"> <span >casepoint </span></a><br>
-<a href="" role="button"> <span >blog </span></a><br>
-<a href="" role="button"> <span >dailyreport </span></a><br>
+<div id="middle"  style="display:flex;" >
+{% block middle %}
+
+{% endblock %}
 </div>
 
+<!-- footer -->
+<div id="footer" style="background-color:#75878a;clear:both;text-align:center;">
+	<footer >	 
+		Copyright UUsome
+	</footer>
+</div>
 
-    <!-- Left side column. contains the logo and sidebar -->
-    {% block middle %}
-
-    {% endblock %}
-
-    <!-- Main Footer -->
-<footer >
-	<div id="footer">
-	Copyright UUsome
-	</div>
-</footer>
 
 {% endblock %}

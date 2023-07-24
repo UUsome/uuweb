@@ -1,0 +1,32 @@
+<div class="arclist">
+    <ul>
+        {% for blog in blog_list %}
+            {% if id %}
+                <li id="{{ id }}">
+                    {% else %}
+                <li {% if blog.view > 1000 %} id="tuijian" {% elif article.view > 500 %} id="Hot" {% endif %}>
+            {% endif %}
+
+        <div class="arc-right">
+            <h4 class="blue-text"><a href="{% url "blogdetail" blog.id %}" title="{{ blog.title }}">{{ blog.title }}</a><sub>{{ blog.digest }}</sub></h4>
+			
+			<small>
+				<em> 
+					<a href="{% url "blogcategory" blog.category %}" title="查看分类"><i class="el-th-list"></i>{{ blog.category }}</a>
+				</em>
+                <a title="发布于 {{ blog.date_time }}  "><i class="el-time"></i> {{ blog.date_time }}</a>
+                <a title="作者： {{ blog.author }}"><i class="el-user"></i>{{ blog.author }}</a>
+                <a title="已有 {{ blog.comment }} 条评论"><i class="el-comment"></i>{{ blog.comment }}</a>
+                <a title="已有 {{ blog.view }} 次浏览"><i class="el-eye-open"></i>{{ blog.view }}</a>
+				
+				<em>
+					{% for tag in blog.tag.values %}
+						<a title="标签: {{ tag.tag_name }}" href="{% url "blogtag" tag.tag_name %}"><i ></i>{{ tag.tag_name }}</a>&nbsp;
+					{% endfor %}
+                </em>
+           </small>
+        </div>
+    
+        {% endfor %}
+    </ul>
+</div>

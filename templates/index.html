@@ -7,6 +7,26 @@
     <!-- Main content -->
   <section class="content">
 
+<br>casepoint <br>
+<a href="{% url 'caseadd' %}" role="button"> <span >caseadd </span></a><br>
+<a href="{% url 'caselist' %}" role="button"> <span >caselist </span></a><br>
+
+<br>blog <br>
+<a href="{% url 'blogs' %}" role="button"> <span >blogs </span></a><br>
+
+
+
+
+plan <br>
+
+<a href="{% url 'calendar' %}" role="button"> <span >calendar </span></a><br>
+<a href="{% url 'all_events' %}" role="button"> <span >all_events </span></a><br>
+
+
+<a href="{% url 'planschedule' %}" role="button"> <span >planschedule </span></a><br>
+<a href="{% url 'planadd' %}" role="button"> <span >planadd </span></a><br>
+
+
 
   </section>
 
@@ -18,3 +38,9 @@
 {% block javascripts %}
 
 {% endblock %}
+
+     path('', views.myindex, name='myindex'),
+    path('caseadd', views.CaseAddView.as_view(), name='caseadd'),
+    path('caselist', views.CaseListView.as_view(), name='caselist'),
+    path('casedetail/<int:Case_title_id>', views.CaseDetailView.as_view(), name='casedetail'),
+    path('solutiondetail/<int:Case_title_id>/<uuid:uniqueid>/', views.SolutionDetailView.as_view(), name='solutiondetail'),

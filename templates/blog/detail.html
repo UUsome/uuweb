@@ -1,0 +1,52 @@
+{% extends "base-left.html" %}
+{% load static %}
+ 
+{% block content %}
+
+    <div  >
+        <article>
+            <h3 class="arc-title index-title">{{ blog.title }} </h3>
+
+                <small><em>
+                     <a title="{{ blog.author }}发表于{{ blog.date_time }}"><i></i>
+                        <time>{{ blog.date_time }}</time>
+                    </a>  
+                     <a title="已有 {{ blog.view }} 次浏览"><i></i>{{ blog.view }}</a> 
+                </em></small>
+
+
+            <!--文章正文-->
+            <div class="article-content bg-color markdown-body">
+                <div  style="padding: 10px 20px 20px 10px">
+                    {{ blog.content|safe }}
+                </div>
+            </div>
+
+            <div class="cyReward " style="text-align: center">
+                <div id="cyReward" role="cylabs" data-use="reward" sid="{{ blog.id }}"> </div>
+            </div>
+
+            <hr>
+
+
+            <!--标签-->
+            <div class="article_tag">
+                &nbsp;&nbsp;<a href="{% url "blogcategory" blog.category %}" title="分类：{{ blog.category }}" style="background-color:#2edfa3">{{ blog.category }}</a>&nbsp;&nbsp;
+                    {% for tag in blog.tag.all %}
+                         <a href="{% url "blogtag" name=tag.tag_name %}" title="标签：{{ tag.tag_name }}" style="background-color:#44cef6">{{ tag.tag_name }}</a>&nbsp;
+                    {% endfor %}
+                
+            </div>
+
+
+
+        </article>
+
+        <!--评论表单-->
+       
+
+    </div>
+
+
+{% endblock %}
+ 

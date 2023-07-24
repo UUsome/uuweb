@@ -1,0 +1,18 @@
+{% extends "base-left.html" %}
+{% load static %}
+
+
+{% block content %}
+    <section class="mysection">
+        <h4 class="index-title">
+        <span > 分类：</span> <a href="{% url "blogcategory" name=category %}">{{ category }}</a>
+
+        </h4>
+        {% if blog_list %}
+            {% include "blog/_blog_list.html" with blogs=blog_list %}
+        {% else %}
+            <p>暂时没有文章..</p>
+        {% endif %}
+    </section>
+
+{% endblock %}

@@ -1,0 +1,87 @@
+{% extends "base-left.html" %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'js/layui/css/layui.css' %}">
+
+{% endblock %}
+
+
+{% block leftdown %} 
+
+
+<li id="Schedule"><a href="{% url 'schedule' %}"><i class="fa fa-caret-right"></i>我的日报</a></li>
+
+
+{% endblock %}
+
+
+{% block content %}
+	<div id="calendar"></div>
+{% endblock %}
+
+{% block javascripts %}
+<script src="{% static 'js/layui/layui.js' %}"></script>
+<script src="{% static 'js/fullcalendar618/index.global.js' %}"></script>
+<script>
+        function newSchedule() {
+            layer.open({
+                type: 2,
+                title: '新建日报',
+                shadeClose: false,
+                maxmin: true,
+                area: ['800px', '460px'],
+                content: "{% url 'schedulecreate' %}",
+                end: function () {
+                    window.location.reload();
+                }
+            });
+        }
+
+	  document.addEventListener('DOMContentLoaded', function() {
+		var calendarEl = document.getElementById('calendar');
+
+		var calendar = new FullCalendar.Calendar(calendarEl, {
+		  headerToolbar: {
+			left: 'prevYear,prev,next,nextYear today',
+			center: 'title',
+			right: 'dayGridMonth,dayGridWeek,dayGridDay'
+		  },
+		  initialDate: '2023-07-12',
+		  navLinks: true, // can click day/week names to navigate views
+		  editable: true,
+		  dayMaxEvents: true, // allow "more" link when too many events
+		  selectable: true,
+		  select: function () {
+		        layer.open({
+                type: 2,
+                title: '新建日报',
+                shadeClose: false,
+                maxmin: true,
+                area: ['800px', '460px'],
+                content: "{% url 'schedulecreate' %}",
+                end: function () {
+                    window.location.reload();
+                }
+            });
+		  },
+		
+		  events: [
+			{
+			  title: 'All Day Event',
+			  start: '2023-01-01'
+			},
+			{
+			  title: 'Click for Google',
+			  url: 'http://google.com/',
+			  start: '2023-01-28'
+			}
+		  ]
+		});
+
+    calendar.render();
+  });
+
+</script>
+
+{% endblock %}

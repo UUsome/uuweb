@@ -1,0 +1,72 @@
+{% extends "base-left.html" %}
+{% load static %}
+
+{% block css %}
+
+{% endblock %}
+
+
+{% block leftdown %} 
+
+
+<li id="Schedule"><a href="{% url 'planschedule' %}"><i class="fa fa-caret-right"></i>我的日报</a></li>
+
+
+
+{% endblock %}
+
+
+{% block content %}
+	<div id="calendar"></div>
+{% endblock %}
+
+{% block javascripts %}
+
+<script src="{% static 'js/fullcalendar618/index.global.js' %}"></script>
+<script>
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar');
+
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      // initialDate: '2023-07-12',
+      locale: 'zh-cn',
+	  themeSystem:'Sketchy',
+      initialView: 'timeGridWeek',
+      nowIndicator: true,
+      headerToolbar: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+      },
+      navLinks: true, // can click day/week names to navigate views
+      editable: true,
+      selectable: true,
+      selectMirror: true,
+      dayMaxEvents: true, // allow "more" link when too many events
+
+      events: [
+           {% for plan in planSchedules %}
+                        {
+                            
+                            title: '{{ plan.title }}',
+                            start: '{{ plan.start | date:"Y-m-d H:i"}}',
+                            end: '{{ plan.end | date:"Y-m-d H:i"}}',
+                            {% if plan.category == '日程安排'  %}
+                                backgroundColor: '#0073b7',
+                            {% elif plan.category == '项目记录' %}
+                                backgroundColor: '#00a65a',
+                            {% else %}
+                                backgroundColor: '#dd4b39',
+                            {% endif %}
+                        },
+         {% endfor %}
+      ]
+    });
+
+    calendar.render();
+  });
+
+</script>
+
+{% endblock %}

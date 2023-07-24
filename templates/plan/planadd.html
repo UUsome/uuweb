@@ -1,0 +1,64 @@
+{% extends 'plan/base-layer.html' %}
+{% load static %}
+
+{% block css %}
+	<link rel="stylesheet" href="{% static 'js/bootstrap-datetimepicker/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'js/bootstrap-datetimepicker/bootstrap-datetimepicker.min.css' %}">
+{% endblock %}
+
+{% block main %}
+<form role="form"  method="post"  action="planadd">
+
+	{% csrf_token %}
+<label  > 类 型 </label>
+	<select style="width:100%;" name="category">
+		{% for category in categorys %}
+			<option value="{{ category.key }}">{{ category.value }}</option>
+		{% endfor %}
+	</select>
+
+	<div id="event_period">
+		<label for="stime">开始时间</label>
+			<input type="text" class="form_datetime" id="stime" name="start" value="{{ start_time | date:'Y-m-d H:i' }}" readonly />
+		<label for="etime">结束时间</label>
+			<input type="text" class="form_datetime" id="etime"  name="end" value="{{ end_time | date:'Y-m-d H:i' }}" readonly />
+	</div>
+
+	<label  for="groupId">分组名称</label>
+	<textarea  name="groupId" rows="1"></textarea>
+	<label for="title">内容</label>
+	<textarea name="title" id="title" rows="5"></textarea>
+	
+	<button  type="submit">提 交</button>
+</form>
+ 
+
+{% endblock %}
+
+{% block javascripts %}
+<script src="{% static 'js/layui/layui.js' %}"></script>
+<script src="{% static 'js/bootstrap-datetimepicker/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/bootstrap-datetimepicker/bootstrap-datetimepicker.js' %}"></script>
+<script src="{% static 'js/bootstrap-datetimepicker/bootstrap-datetimepicker.zh-CN.js' %}"></script>
+
+    <script type="text/javascript">
+
+
+        /*input 时间输入选择*/
+        $(".form_datetime").datetimepicker({
+            language: 'zh-CN',
+            weekStart: 1,
+            todayBtn:  1,
+            autoclose: 1,
+            todayHighlight: 1,
+            startView: 1,
+            forceParse: 0,
+			minViewMode: 1
+        }).on('changeDate', function (ev) {
+            $(this).datetimepicker('hide');
+        });
+
+
+    </script>
+
+{% endblock %}

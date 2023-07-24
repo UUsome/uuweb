@@ -5,7 +5,7 @@ from django.db import models
 
 # 2，框架表设计 frame (id,type_id,order_flage,name,creater,add_time,is_show,remark)
 class Case_title(models.Model):
-    category_choices = (('0', '学习工具'), ('1', '思考工具'), ('2', '分类工具'), ('3', '分步工具'))
+    category_choices = (('学习工具', '学习工具'), ('思考工具', '思考工具'), ('分类工具', '分类工具'), ('分步工具', '分步工具'))
     category = models.CharField(max_length=20, choices=category_choices, default='0', verbose_name="类型")
     casetitle = models.CharField(max_length=64,verbose_name='框架标题')
     caseprofile = models.CharField(max_length=200,null=True, blank=True,verbose_name='简介')

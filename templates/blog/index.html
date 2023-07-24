@@ -1,0 +1,25 @@
+{% extends "base-left.html" %}
+{% load static %}
+
+{% block content %}
+	{% if blog_list %}
+		<section class="mysection">
+					<div class="arclist">
+			<h4 ><a href=""><i ></i>最新文章
+				<small>News</small>
+			</a></h4>
+			{% include "blog/_blog_list.html" with blogs=blog_list id="New" %}
+		</div>
+		{% comment %}  
+				<div >
+					<h4 ><a href=""><i></i>热门文章
+						<small>Hot</small>
+					</a></h4>
+					{% include "blog/_blog_list.html" with blogs=blog_hot id="Hot" %}
+				</div>
+		{% endcomment %} 		
+		</section>
+	{% else %}
+		<section class="mysection" style="animation: fuxiasuo 0.8s;">暂时没有文章..</section>
+	{% endif %}
+{% endblock %}
